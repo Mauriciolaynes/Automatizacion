@@ -1,0 +1,26 @@
+from selenium import webdriver
+from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.common.by import By
+from selenium.webdriver.chrome.service import Service
+import time
+
+driver = webdriver.Chrome (executable_paht = r"C:\chrome\chromedriver-win32\chromedriver.exe")
+driver.get("https://google.com")
+
+titulo = driver.title
+assert titulo == "Google"
+
+driver.implicitly_wait(0.5)
+
+buscar_selenium = driver.find_element(by=By.NAME, value="q")
+presionar_busqueda = driver.find_element(by=By.NAME, value="btnK")
+
+buscar_selenium.send_keys("Selenium")
+presionar_busqueda.click()
+
+buscar_selenium = driver.find_element(by=By.NAME, value="q")
+valor = buscar_selenium.get_attribute("value")
+
+assert valor == "Selenium"
+
+driver.quit
