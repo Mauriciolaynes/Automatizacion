@@ -16,7 +16,7 @@ usuario.send_keys("mauriciolaynescastro@gmail.com")
 time.sleep(1)
 
 clave = driver.find_element(By.NAME, "pass")
-clave.send_keys("miiglesia")
+clave.send_keys("")
 clave.send_keys(Keys.ENTER)
 time.sleep(10)
 
